@@ -67,7 +67,7 @@ class ArticleController extends Controller
     {
         // Doit retourner le formulaire d'édition d'un article spécifique
         $article = Article::findOrFail($id);
-        return view('articles.edit', compact('artilce'));
+        return view('articles.edit', compact('article'));
     }
 
     /**
