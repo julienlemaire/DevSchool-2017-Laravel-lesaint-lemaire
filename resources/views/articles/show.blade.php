@@ -12,6 +12,8 @@
 
                         <br>
                         <em>Auteur : {{ $article->user->name }}</em>
+                        <br>
+                        <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
                     </div>
                 </div>
             </div>

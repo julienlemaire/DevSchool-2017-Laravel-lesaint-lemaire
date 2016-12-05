@@ -24,7 +24,7 @@
                          'placeholder' => 'Contenu']) !!}
 
                         <br>
-                        {!! Form::submit('Envoyer',
+                        {!! Form::submit('Publier',
                          ['class' => 'btn btn-info']) !!}
 
                         {!! Form::close() !!}

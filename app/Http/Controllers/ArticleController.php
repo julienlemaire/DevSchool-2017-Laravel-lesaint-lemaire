@@ -41,7 +41,13 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        // Doit enregistrer un nouvel article depuis un formulaire
+        $article = new Article;
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
+
+        $article->fill($input)->save();
+
+        return redirect()->route('article.index');
     }
 
     /**
