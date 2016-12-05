@@ -100,6 +100,8 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        // Doit supprimer un article spécifique
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return redirect()->route('article.index');
     }
 }
