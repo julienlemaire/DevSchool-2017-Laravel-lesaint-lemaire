@@ -85,7 +85,11 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Doit enregistrer les modifications faites à un article
+        $article = Article::findOrFail($id);
+        $input = $request->input();
+        $article->fill($input)->save();
+
+        return redirect()->route('article.show', $id);
     }
 
     /**
@@ -96,6 +100,8 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        // Doit supprimer un article spécifique
+        $article = Article::findOrFail($id);
+        $article->delete();
+        return redirect()->route('article.index');
     }
 }
