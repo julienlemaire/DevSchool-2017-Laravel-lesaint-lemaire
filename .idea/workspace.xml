@@ -4,10 +4,6 @@
     <list default="true" id="6d69198f-2c14-452a-b5bd-17d6792867d3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/articles/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/articles/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/articles/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/articles/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/articles/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/articles/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/articles/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/articles/show.blade.php" />
     </list>
     <ignored path="git-laravel3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,8 +67,8 @@
       <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+            <state relative-caret-position="389">
+              <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
               <folding>
                 <element signature="e#40#63#0#PHP" expanded="true" />
               </folding>
@@ -508,7 +504,7 @@
       <workItem from="1480923268328" duration="6659000" />
       <workItem from="1480932838945" duration="231000" />
       <workItem from="1480943102087" duration="1940000" />
-      <workItem from="1480946822940" duration="3172000" />
+      <workItem from="1480946822940" duration="3876000" />
     </task>
     <task id="LOCAL-00001" summary="correction des probleme">
       <created>1480946929648</created>
@@ -531,11 +527,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480947388428</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="envoyer dans une bdd">
+      <created>1480950019439</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1480950019439</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27864000" />
+    <option name="totallyTimeSpent" value="28568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -586,7 +589,8 @@
     <MESSAGE value="correction des probleme" />
     <MESSAGE value="faute de frappe" />
     <MESSAGE value="manque un truc" />
-    <option name="LAST_COMMIT_MESSAGE" value="manque un truc" />
+    <MESSAGE value="envoyer dans une bdd" />
+    <option name="LAST_COMMIT_MESSAGE" value="envoyer dans une bdd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -995,14 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/articles/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/articles/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1019,10 +1015,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/articles/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+        <state relative-caret-position="389">
+          <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
           <folding>
             <element signature="e#40#63#0#PHP" expanded="true" />
           </folding>

@@ -85,7 +85,11 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Doit enregistrer les modifications faites à un article
+        $article = Article::findOrFail($id);
+        $input = $request->input();
+        $article->fill($input)->save();
+
+        return redirect()->route('article.show', $id);
     }
 
     /**
