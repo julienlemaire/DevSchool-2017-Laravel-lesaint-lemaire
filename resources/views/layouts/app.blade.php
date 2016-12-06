@@ -48,6 +48,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Profil</a></li>
+                    <li><a href="{{ route('evenement.create') }}">Evenements</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

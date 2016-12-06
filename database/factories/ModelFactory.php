@@ -30,3 +30,15 @@ $factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
        'user_id' => rand(1, 20),
    ];
 });
+
+$factory->define(App\Models\Evenement::class, function (Faker\Generator $faker) {
+    return [
+        'nom' => $faker->sentence(),
+        'description' => $faker->text(),
+        'date_debut' => $faker->date(),
+        'date_fin' => $faker->date(),
+        'lieu' => $faker->text(),
+        'tarif' => $faker->numberBetween(15, 30),
+        'user_id' => rand(1, 20),
+    ];
+});
