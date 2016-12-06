@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evenement;
+use Auth;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class EvenementController extends Controller
@@ -17,7 +18,9 @@ class EvenementController extends Controller
     {
         // Doit retourner la liste des evenements
 
-        return view('evenements.index');
+        $list = Evenement::orderBy('id', 'desc')->paginate(10);
+
+        return view('evenements.index', compact('list'));
     }
 
     /**
@@ -41,6 +44,15 @@ class EvenementController extends Controller
     public function store(Request $request)
     {
         //Doit enregistrer un nouvel evenement depuis un formulaire
+
+        $evenement = new Evenement;
+
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
+
+        $evenement->fill($input)->save();
+
+        return redirect()->route('evenement.index');
     }
 
     /**
@@ -53,7 +65,9 @@ class EvenementController extends Controller
     {
         //Doit retourner la page d'un evenement spécifique
 
-        return view('evenements.show');
+        $evenement = Evenement::findOrFail($id);
+
+        return view('evenements.show', compact('evenement'));
     }
 
     /**
@@ -66,7 +80,9 @@ class EvenementController extends Controller
     {
         //Doit retourner le formulaire d'édition d'un evenement spécifique
 
-        return view('evenements.edit');
+        $evenement = Evenement::findOrFail($id);
+
+        return view('evenements.edit', compact('evenement'));
     }
 
     /**
