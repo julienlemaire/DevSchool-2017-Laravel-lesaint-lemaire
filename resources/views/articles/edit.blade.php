@@ -8,10 +8,13 @@
                     <div class="panel-heading">Modifier un article</div>
 
                     <div class="panel-body">
-                        {!! Form::model($article, ['route' => ['article.update', $article->id],
-                        'method' => 'PUT']) !!}
+                        {!! Form::model($article,
+                         array(
+                         'route' => array('article.update', $article->id),
+                        'method' => 'PUT')) !!}
 
                         {!! Form::label('title', 'Titre') !!}
+
                         {!! Form::text('title', null,
                         ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
 
@@ -21,7 +24,8 @@
                         ['class' => 'form-control', 'placeholder' => 'Contenu']) !!}
 
                         <br>
-                        {!! Form::submit('Mettre à jour', ['class' => 'btn btn-info']) !!}
+                        {!! Form::submit('Mettre à jour',
+                         ['class' => 'btn btn-info']) !!}
 
                         {!! Form::close() !!}
                     </div>

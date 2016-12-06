@@ -12,17 +12,25 @@
 
                         <br>
                         <em>Auteur : {{ $article->user->name }}</em>
-                        <br>
-                        <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
+                        <br><br>
 
-                        {!! Form::model($article, [
-                        'route' => ['article.destroy', $article->id],
-                        'method' => 'DELETE'
-                        ]) !!}
+                        @if(Auth::check() && Auth::user()->isAdmin)
+                            <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
 
-                        {!! Form::submit('Supprimer', ['class' =>'btn btn-danger']) !!}
+                            {!! Form::model($article,
+                             array(
+                            'route' =>array('article.destroy', $article->id),
+                            'method' => 'DELETE'
+                            )) !!}
 
-                        {!! Form::close() !!}
+                            <br>
+
+                            {!! Form::submit('Supprimer', ['class' =>'btn btn-danger']) !!}
+
+                            {!! Form::close() !!}
+                        @endif
+
+                        <a href="{{ route('article.index') }}">retour aux articles</a>
                     </div>
                 </div>
             </div>

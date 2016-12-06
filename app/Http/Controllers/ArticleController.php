@@ -10,6 +10,12 @@ use App\Http\Requests;
 
 class ArticleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isadmin'], ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +24,7 @@ class ArticleController extends Controller
     public function index()
     {
         // Doit retourner la liste des articles
-        $list = Article::paginate(10);
+        $list = Article::orderBy('id', 'desc')->paginate(10);
         return view('articles.index', compact('list'));
     }
 
@@ -36,18 +42,35 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        $this->validate($request,
+            [
+                'title' => 'required|min:6',
+                'content' => 'required|min:10'
+            ],
+            [
+            'title.required' => 'Titre requis',
+            'title.min' => 'Le titre doit contenir au moins 6 caractéres',
+
+            'content.required' => 'Contenu requis',
+            'content.min' => 'L\'article doit contenir au moins 10 caractéres'
+            ]);
+
         $article = new Article;
         $input = $request->input();
         $input['user_id'] = Auth::user()->id;
 
         $article->fill($input)->save();
 
-        return redirect()->route('article.index');
+        return redirect()
+            ->route('article.index')
+            ->with('success', 'L\'article a bien été ajouté.');
+
+
     }
 
     /**
@@ -85,11 +108,28 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request,
+            [
+                'title' => 'required|min:6',
+                'content' => 'required|min:10'
+            ],
+            [
+                'title.required' => 'Titre requis',
+                'title.min' => 'Le titre doit contenir au moins 6 caractéres',
+
+                'content.required' => 'Contenu requis',
+                'content.min' => 'L\'article doit contenir au moins 10 caractéres'
+            ]);
+
+
         $article = Article::findOrFail($id);
         $input = $request->input();
         $article->fill($input)->save();
 
-        return redirect()->route('article.show', $id);
+        return redirect()
+            ->route('article.index')
+            ->with('success', 'L\'article a bien été modifié.');
     }
 
     /**
@@ -102,6 +142,8 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
         $article->delete();
-        return redirect()->route('article.index');
+        return redirect()
+            ->route('article.index')
+            ->with('success', 'L\'article a bien été supprimé.');
     }
 }
