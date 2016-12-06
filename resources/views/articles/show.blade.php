@@ -16,9 +16,6 @@
                         <br>
                         <br>
 
-                        <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
-                        <br><br>
-
                         @if(Auth::check() && Auth::user()->isAdmin)
                             <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
 
@@ -34,12 +31,9 @@
                             'method' => 'DELETE'
                             )) !!}
 
-                            <br>
-
                         <br>
 
                         {!! Form::submit('Supprimer', ['class' =>'btn btn-danger']) !!}
-                            {!! Form::submit('Supprimer', ['class' =>'btn btn-danger']) !!}
 
                         {!! Form::close() !!}
 
@@ -50,7 +44,6 @@
                             {!! Form::close() !!}
                         @endif
 
-                        <a href="{{ route('article.index') }}">retour aux articles</a>
                     </div>
                 </div>
             </div>
