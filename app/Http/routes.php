@@ -23,6 +23,8 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
+Route::resource('/evenement', 'EvenementController');
+
 
 Route::resource('/article', 'ArticleController');
 
