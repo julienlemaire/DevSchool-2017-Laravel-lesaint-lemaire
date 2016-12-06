@@ -18,7 +18,7 @@ class ArticleController extends Controller
     public function index()
     {
         // Doit retourner la liste des articles
-        $list = Article::paginate(10);
+        $list = Article::orderBy('id', 'desc')->paginate(10);
         return view('articles.index', compact('list'));
     }
 

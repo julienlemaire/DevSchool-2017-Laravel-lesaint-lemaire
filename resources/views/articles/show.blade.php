@@ -11,18 +11,30 @@
                         {{ $article->content }}
 
                         <br>
+                        <br>
                         <em>Auteur : {{ $article->user->name }}</em>
                         <br>
+                        <br>
+
                         <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
+
+                        <br>
 
                         {!! Form::model($article, [
                         'route' => ['article.destroy', $article->id],
                         'method' => 'DELETE'
                         ]) !!}
 
+                        <br>
+
                         {!! Form::submit('Supprimer', ['class' =>'btn btn-danger']) !!}
 
                         {!! Form::close() !!}
+
+                        <br>
+
+                        <a href="{{ route('article.index') }}">Retour aux articles</a>
+
                     </div>
                 </div>
             </div>
