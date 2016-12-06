@@ -52,8 +52,17 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ route('article.create') }}">Publier</a></li>
-                    <li><a href="{{ route('article.index') }}">Articles</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ 'Articles' }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('article.create') }}">Publier</a></li>
+                            <li><a href="{{ route('article.index') }}">Afficher</a></li>
+                        </ul>
+                    </li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
