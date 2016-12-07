@@ -25,7 +25,7 @@ class adminController extends Controller
     public function index()
     {
         // Doit retourner la liste des articles
-        $list = Article::orderBy('id', 'desc')->paginate(20);
+        $list = Article::all();
         return view('admins.index', compact('list'));
     }
 

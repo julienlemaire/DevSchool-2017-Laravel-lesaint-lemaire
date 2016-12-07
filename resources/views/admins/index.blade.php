@@ -8,6 +8,22 @@
                     <div class="panel-heading">modifier ou supprimer</div>
 
                     <div class="panel-body">
+                        @foreach($list as $evenement)
+                            <h2>
+                                <a href="{{ route('evenement.show', $evenement->id) }}">
+                                    {{ $evenement->nom }}</a>
+                            </h2>
+                            <p>{{ $evenement->description }}</p>
+                            <p>{{ 'Date de debut : ' }} {{ $evenement->date_debut }}</p>
+                            <p>{{ 'Date de fin : ' }} {{ $evenement->date_fin }}</p>
+                            <p>{{ 'Lieu : ' }} <em>{{ $evenement->lieu }}</em></p>
+                            <p>{{ 'Prix : ' }} <strong>{{ $evenement->tarif }} {{'€'}}</strong></p>
+                            <hr style="border-color: lightsteelblue">
+                        @endforeach
+
+                    </div>
+
+                    <div class="panel-body">
                         @foreach($list as $article)
                             <h2>
                                 <a href="{{ route('admin.show', $article->id) }}">
@@ -17,7 +33,7 @@
                             <hr style="border-color: lightsteelblue">
                         @endforeach
 
-                        {{ $list->links() }}
+
                     </div>
                 </div>
             </div>
