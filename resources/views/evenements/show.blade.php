@@ -23,6 +23,18 @@
 
                         <a href="{{ route('evenement.edit', $evenement->id) }}" class="btn btn-warning">Modifier</a>
 
+                        <br>
+                        <br>
+
+                        {!! Form::model($evenement, [
+                        'route' => ['evenement.destroy', $evenement->id],
+                        'method' => 'DELETE'
+                        ]) !!}
+
+                        {!! Form::submit('Supprimer', ['class' => 'btn btn-danger']) !!}
+
+                        {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>
