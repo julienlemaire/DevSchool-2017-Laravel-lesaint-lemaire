@@ -20,7 +20,11 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/admin', function () {
+    return view('admin');
 });
 
 Route::resource('/evenement', 'EvenementController');
@@ -28,10 +32,12 @@ Route::resource('/evenement', 'EvenementController');
 
 Route::resource('/article', 'ArticleController');
 
+Route::resource('/admin', 'AdminController');
 
 Route::auth();
 
-Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+
 
 
 
