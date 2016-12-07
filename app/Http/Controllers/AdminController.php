@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Evenement;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -165,7 +166,7 @@ class adminController extends Controller
 
         $list = Evenement::all();
 
-        return view('evenements.indexs', compact('list'));
+        return view('admins.index', compact('list'));
     }
 
     /**
@@ -177,7 +178,7 @@ class adminController extends Controller
     {
         //Doit retourner le formulaire de création des evenements
 
-        return view('evenements.creates');
+        return view('admins.creates');
     }
 
     /**
@@ -226,7 +227,7 @@ class adminController extends Controller
         $evenement->fill($input)->save();
 
         return redirect()
-            ->route('evenement.indexs')
+            ->route('admin.indexs')
             ->with('success', 'L\'événement a bien été ajouté.');
     }
 
@@ -243,7 +244,7 @@ class adminController extends Controller
 
         $evenement = Evenement::findOrFail($id);
 
-        return view('evenements.shows', compact('evenement'));
+        return view('admins.shows', compact('evenement'));
     }
 
     /**
@@ -258,7 +259,7 @@ class adminController extends Controller
 
         $evenement = Evenement::findOrFail($id);
 
-        return view('evenements.edits', compact('evenement'));
+        return view('admins.edits', compact('evenement'));
     }
 
     /**
@@ -308,7 +309,7 @@ class adminController extends Controller
         $evenement->fill($input)->save();
 
         return redirect()
-            ->route('evenement.indexs')
+            ->route('admin.indexs')
             ->with('success', 'L\'événement a bien été modifié.');
     }
 
@@ -327,7 +328,7 @@ class adminController extends Controller
         $evenement->deletes();
 
         return redirect()
-            ->route('evenement.indexs')
+            ->route('admin.indexs')
             ->with('success', 'L\'événement a bien été supprimé.');
     }
 }

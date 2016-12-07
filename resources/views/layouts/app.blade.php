@@ -62,8 +62,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('article.index') }}">Afficher</a></li>
-                            <li><a href="{{ route('article.create') }}">Publier</a></li>
+                            <li><a href="{{ route('article.index') }}"><i class="fa fa-eye"></i>Afficher</a></li>
+                            <li><a href="{{ route('article.create') }}"><i class="fa fa-pencil-square-o"></i>Publier</a></li>
                         </ul>
                     </li>
 
@@ -73,8 +73,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('evenement.index') }}">Afficher</a></li>
-                            <li><a href="{{ route('evenement.create') }}">Publier</a></li>
+                            <li><a href="{{ route('evenement.index') }}"><i class="fa fa-eye"></i>Afficher</a></li>
+                            <li><a href="{{ route('evenement.create') }}"><i class="fa fa-pencil-square-o"></i>Publier</a></li>
                         </ul>
                     </li>
 
