@@ -18,17 +18,17 @@
                         <br>
 
                         @if(Auth::check() && Auth::user()->isAdmin)
-                            <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
+                            <a href="{{ route('admin.edit', $article->id) }}" class="btn btn-warning">Modifier</a>
 
                             <br>
 
                             {!! Form::model($article, [
-                            'route' => ['article.destroy', $article->id],
+                            'route' => ['admin.destroy', $article->id],
                             'method' => 'DELETE'
                             ]) !!}
                             {!! Form::model($article,
                              array(
-                            'route' =>array('article.destroy', $article->id),
+                            'route' =>array('admin.destroy', $article->id),
                             'method' => 'DELETE'
                             )) !!}
 
@@ -40,7 +40,7 @@
 
                             <br>
 
-                            <a href="{{ route('article.index') }}">Retour aux articles</a>
+                            <a href="{{ route('admin.index') }}">Retour aux articles</a>
 
                             {!! Form::close() !!}
                         @endif

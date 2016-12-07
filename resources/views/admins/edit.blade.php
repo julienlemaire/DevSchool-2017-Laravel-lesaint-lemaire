@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         {!! Form::model($article,
                          array(
-                         'route' => array('article.update', $article->id),
+                         'route' => array('admin.update', $article->id),
                         'method' => 'PUT')) !!}
 
                         {!! Form::label('title', 'Titre') !!}

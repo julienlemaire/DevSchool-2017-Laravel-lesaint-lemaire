@@ -26,7 +26,7 @@ class adminController extends Controller
     {
         // Doit retourner la liste des articles
         $list = Article::orderBy('id', 'desc')->paginate(20);
-        return view('articles.index', compact('list'));
+        return view('admins.index', compact('list'));
     }
 
     /**
@@ -37,7 +37,7 @@ class adminController extends Controller
     public function create()
     {
         // Doit retourner le formulaire de création des articles
-        return view('articles.create');
+        return view('admins.create');
     }
 
     /**
@@ -68,7 +68,7 @@ class adminController extends Controller
         $article->fill($input)->save();
 
         return redirect()
-            ->route('article.index')
+            ->route('admin.index')
             ->with('success', 'L\'article a bien été ajouté.');
 
 
@@ -84,7 +84,7 @@ class adminController extends Controller
     {
         // Doit retourner la page d'un article spécifique
         $article = Article::findOrFail($id);
-        return view('articles.show', compact('article'));
+        return view('admins.show', compact('article'));
     }
 
     /**
@@ -97,7 +97,7 @@ class adminController extends Controller
     {
         // Doit retourner le formulaire d'édition d'un article spécifique
         $article = Article::findOrFail($id);
-        return view('articles.edit', compact('article'));
+        return view('admins.edit', compact('article'));
     }
 
     /**
@@ -129,7 +129,7 @@ class adminController extends Controller
         $article->fill($input)->save();
 
         return redirect()
-            ->route('article.index')
+            ->route('admin.index')
             ->with('success', 'L\'article a bien été modifié.');
     }
 
@@ -144,7 +144,7 @@ class adminController extends Controller
         $article = Article::findOrFail($id);
         $article->delete();
         return redirect()
-            ->route('article.index')
+            ->route('admin.index')
             ->with('success', 'L\'article a bien été supprimé.');
     }
 }
