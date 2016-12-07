@@ -95,6 +95,13 @@ class EvenementController extends Controller
     public function update(Request $request, $id)
     {
         //Doit enregistrer les modifications faites à un evenement
+
+        $evenement = Evenement::findOrFail($id);
+
+        $input = $request->input();
+        $evenement->fill($input)->save();
+
+        return redirect()->route('evenement.show', $id);
     }
 
     /**

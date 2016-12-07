@@ -8,7 +8,40 @@
                     <div class="panel-heading">Modifier un evenement</div>
 
                     <div class="panel-body">
-                        Formulaire de modification
+                        {{--Formulaire de modification--}}
+
+                        {!! Form::model($evenement, ['route' => ['evenement.update', $evenement->id],
+                        'method' => 'PUT']) !!}
+
+                        {!! Form::label('nom', 'Titre') !!}
+                        {!! Form::text('nom', null,
+                        ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
+
+                        {!! Form::label('description', 'Description') !!}
+                        {!! Form::textarea('description', null,
+                        ['class' => 'form-control', 'placeholder' => 'Description']) !!}
+
+                        {!! Form::label('date_debut', 'Date de debut') !!}
+                        {!! Form::text('date_debut', null,
+                        ['class' => 'form-control', 'placeholder' => 'yyyyy.mm.jj  heure.min.sec']) !!}
+
+                        {!! Form::label('date_fin', 'Date de fin') !!}
+                        {!! Form::text('date_fin', null,
+                        ['class' => 'form-control', 'placeholder' => 'yyyyy.mm.jj  heure.min.sec']) !!}
+
+                        {!! Form::label('lieu', 'Lieu') !!}
+                        {!! Form::text('lieu', null,
+                        ['class' => 'form-control', 'placeholder' => 'Lieu']) !!}
+
+                        {!! Form::label('tarif', 'Tarif') !!}
+                        {!! Form::text('tarif', null,
+                        ['class' => 'form-control', 'placeholder' => 'Tarif']) !!}
+
+                        <br>
+                        {!! Form::submit('Mettre à jour', ['class' => 'btn btn-info']) !!}
+
+                        {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>

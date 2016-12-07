@@ -10,7 +10,7 @@
                                    <div class="panel-body">
                                           {!! Form::open(['route' => 'evenement.store', 'method' => 'POST']) !!}
 
-                                          {!! Form::label('nom', 'Nom') !!}
+                                          {!! Form::label('nom', 'Titre') !!}
                                           {!! Form::text('nom', null,
                                           ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
 

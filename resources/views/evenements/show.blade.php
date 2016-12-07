@@ -21,7 +21,8 @@
                         <br>
                         <br>
 
-                        <a href="{{ route('evenement.edit', $evenement->id) }}" class="btn btn-success">Modifier</a>
+                        <a href="{{ route('evenement.edit', $evenement->id) }}" class="btn btn-warning">Modifier</a>
+
                     </div>
                 </div>
             </div>
