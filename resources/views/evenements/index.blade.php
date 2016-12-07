@@ -20,6 +20,7 @@
                             <p>{{ 'Date de fin : ' }} {{ $evenement->date_fin }}</p>
                             <p>{{ 'Lieu : ' }} <em>{{ $evenement->lieu }}</em></p>
                             <p>{{ 'Prix : ' }} <strong>{{ $evenement->tarif }}</strong></p>
+                            <hr style="border-color: lightsteelblue">
                         @endforeach
                         {{ $list->links() }}
                     </div>
