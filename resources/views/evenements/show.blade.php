@@ -19,21 +19,26 @@
                         <em>Oragnisateur : {{ $evenement->user->name }}</em>
 
                         <br>
-                        <br>
 
-                        <a href="{{ route('evenement.edit', $evenement->id) }}" class="btn btn-warning">Modifier</a>
+                        @if(Auth::check() && Auth::user()->isAdmin)
 
-                        <br>
-                        <br>
+                            <br>
 
-                        {!! Form::model($evenement, [
-                        'route' => ['evenement.destroy', $evenement->id],
-                        'method' => 'DELETE'
-                        ]) !!}
+                            <a href="{{ route('evenement.edit', $evenement->id) }}" class="btn btn-warning">Modifier</a>
 
-                        {!! Form::submit('Supprimer', ['class' => 'btn btn-danger']) !!}
+                            <br>
+                            <br>
 
-                        {!! Form::close() !!}
+                            {!! Form::model($evenement, [
+                            'route' => ['evenement.destroy', $evenement->id],
+                            'method' => 'DELETE'
+                            ]) !!}
+
+                            {!! Form::submit('Supprimer', ['class' => 'btn btn-danger']) !!}
+
+                            {!! Form::close() !!}
+
+                        @endif
 
                     </div>
                 </div>

@@ -9,6 +9,13 @@ use App\Http\Requests;
 
 class EvenementController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'isadmin'], ['except' => ['index', 'show']]);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
