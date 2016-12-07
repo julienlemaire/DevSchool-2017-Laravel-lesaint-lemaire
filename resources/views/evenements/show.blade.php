@@ -40,6 +40,10 @@
 
                         @endif
 
+                        <br>
+
+                        <a href="{{ route('evenement.index') }}">Retour aux événements</a>
+
                     </div>
                 </div>
             </div>

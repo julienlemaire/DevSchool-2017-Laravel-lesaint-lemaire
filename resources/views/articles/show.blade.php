@@ -17,7 +17,7 @@
                         <br>
 
                         @if(Auth::check() && Auth::user()->isAdmin)
-                            <a href="{{ route('article.edit', $article->id) }}" class="btn btn-success">Modifier</a>
+                            <a href="{{ route('article.edit', $article->id) }}" class="btn btn-warning">Modifier</a>
 
                         <br>
 
