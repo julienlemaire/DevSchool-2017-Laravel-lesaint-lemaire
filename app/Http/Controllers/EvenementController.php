@@ -45,15 +45,46 @@ class EvenementController extends Controller
     {
         //Doit enregistrer un nouvel evenement depuis un formulaire
 
-        $evenement = new Evenement;
+        $this->validate($request,
+            [
+                'nom' => 'required|min:3',
+                'description' => 'required|min:10',
+                'date_debut' => 'required',
+                'date_fin' => 'required',
+                'lieu' => 'required|min:5',
+                'tarif' => 'required|min:1'
 
+            ],
+            [
+                'nom.required' => 'Titre requis',
+                'nom.min' => 'Le titre doit contenir au moins 3 caractères',
+
+                'description.required' => 'Description requis',
+                'description.min' => 'L\'article doit contenir au moins 10 caractères',
+
+                'date_debut.required' => 'Date de début requis',
+                'date_debut.date' => 'Type de format requis',
+
+                'date_fin.required' => 'Date de fin requis',
+                'date_fin.date' => 'Type de format requis',
+
+                'lieu.required' => 'Lieu requis',
+                'lieu.min' => 'Le lieu doit contenir au moins 5 caractères',
+
+                'tarif.required' => 'Tarif requis',
+                'tarif.min' => 'Le lieu doit contenir au moins un caractère'
+             ]);
+
+        $evenement = new Evenement;
         $input = $request->input();
         $input['user_id'] = Auth::user()->id;
-
         $evenement->fill($input)->save();
 
-        return redirect()->route('evenement.index');
+        return redirect()
+            ->route('evenement.index')
+            ->with('success', 'L\'événement a bien été ajouté.');
     }
+
 
     /**
      * Display the specified resource.
@@ -96,12 +127,44 @@ class EvenementController extends Controller
     {
         //Doit enregistrer les modifications faites à un evenement
 
-        $evenement = Evenement::findOrFail($id);
+        $this->validate($request,
+            [
+                'nom' => 'required|min:3',
+                'description' => 'required|min:10',
+                'date_debut' => 'required',
+                'date_fin' => 'required',
+                'lieu' => 'required|min:5',
+                'tarif' => 'required|min:1'
 
+            ],
+            [
+                'nom.required' => 'Titre requis',
+                'nom.min' => 'Le titre doit contenir au moins 3 caractères',
+
+                'description.required' => 'Description requis',
+                'description.min' => 'L\'article doit contenir au moins 10 caractères',
+
+                'date_debut.required' => 'Date de début requis',
+                'date_debut.date' => 'Type de format requis',
+
+                'date_fin.required' => 'Date de fin requis',
+                'date_fin.date' => 'Type de format requis',
+
+                'lieu.required' => 'Lieu requis',
+                'lieu.min' => 'Le lieu doit contenir au moins 5 caractères',
+
+                'tarif.required' => 'Tarif requis',
+                'tarif.min' => 'Le lieu doit contenir au moins un caractère'
+            ]);
+
+
+        $evenement = Evenement::findOrFail($id);
         $input = $request->input();
         $evenement->fill($input)->save();
 
-        return redirect()->route('evenement.show', $id);
+        return redirect()
+            ->route('evenement.index')
+            ->with('success', 'L\'événement a bien été modifié.');
     }
 
     /**
@@ -118,6 +181,8 @@ class EvenementController extends Controller
 
         $evenement->delete();
 
-        return redirect()->route('evenement.index');
+        return redirect()
+            ->route('evenement.index')
+            ->with('success', 'L\'événement a bien été supprimé.');
     }
 }

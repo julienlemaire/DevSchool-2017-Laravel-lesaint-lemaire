@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Publier un article</div>
+                    <div class="panel-heading">Voici tous les articles</div>
 
                     <div class="panel-body">
                         @foreach($list as $article)
@@ -14,6 +14,7 @@
                                 {{ $article->title }}</a>
                             </h2>
                             <p>{{ $article->content  }}</p>
+                            <hr style="border-color: lightsteelblue">
                         @endforeach
    {{ $list->links() }}
                     </div>

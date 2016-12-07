@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Publier un événement</div>
+                    <div class="panel-heading">Voici tous les événements</div>
 
                     <div class="panel-body">
                         @foreach($list as $evenement)
@@ -19,7 +19,7 @@
                             <p>{{ 'Date de debut : ' }} {{ $evenement->date_debut }}</p>
                             <p>{{ 'Date de fin : ' }} {{ $evenement->date_fin }}</p>
                             <p>{{ 'Lieu : ' }} <em>{{ $evenement->lieu }}</em></p>
-                            <p>{{ 'Prix : ' }} <strong>{{ $evenement->tarif }}</strong></p>
+                            <p>{{ 'Prix : ' }} <strong>{{ $evenement->tarif }} {{'€'}}</strong></p>
                             <hr style="border-color: lightsteelblue">
                         @endforeach
                         {{ $list->links() }}

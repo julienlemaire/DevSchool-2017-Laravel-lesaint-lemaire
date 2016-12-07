@@ -23,11 +23,11 @@
 
                         {!! Form::label('date_debut', 'Date de debut') !!}
                         {!! Form::text('date_debut', null,
-                        ['class' => 'form-control', 'placeholder' => 'yyyyy.mm.jj  heure.min.sec']) !!}
+                        ['class' => 'form-control', 'placeholder' => 'y.m.d  heure.min.sec']) !!}
 
                         {!! Form::label('date_fin', 'Date de fin') !!}
                         {!! Form::text('date_fin', null,
-                        ['class' => 'form-control', 'placeholder' => 'yyyyy.mm.jj  heure.min.sec']) !!}
+                        ['class' => 'form-control', 'placeholder' => 'y.m.d  heure.min.sec']) !!}
 
                         {!! Form::label('lieu', 'Lieu') !!}
                         {!! Form::text('lieu', null,
